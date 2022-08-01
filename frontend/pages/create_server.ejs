@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <!-- META DATA -->
+  <meta charset="UTF-8">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords"
+    content="admin,admin dashboard,admin panel,admin template,bootstrap,clean,dashboard,flat,jquery,modern,responsive,premium admin templates,responsive admin,ui,ui kit.">
+
+  <!-- FAVICON -->
+  <link rel="shortcut icon" type="image/x-icon" href="../assets/images/brand/favicon.ico" />
+
+  <!-- TITLE -->
+  <title>Deploy - Reliactyl</title>
+
+  <!-- BOOTSTRAP CSS -->
+  <link id="style" href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- STYLE CSS -->
+  <link href="../assets/css/style.css" rel="stylesheet" />
+  <link href="../assets/css/dark-style.css" rel="stylesheet" />
+  <link href="../assets/css/transparent-style.css" rel="stylesheet">
+  <link href="../assets/css/skin-modes.css" rel="stylesheet" />
+
+  <!--- FONT-ICONS CSS -->
+  <link href="../assets/css/icons.css" rel="stylesheet" />
+
+  <!-- COLOR SKIN CSS -->
+  <link id="theme" rel="stylesheet" type="text/css" media="all" href="../assets/colors/color1.css" />
+
+</head>
+
+<body class="app sidebar-mini ltr dark-mode">
+
+  <!-- GLOBAL-LOADER -->
+  <div id="global-loader">
+    <img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
+  </div>
+  <!-- /GLOBAL-LOADER -->
+
+  <!-- PAGE -->
+  <div class="page">
+
+    <%- include('./parts/header') %>
+      <%- include('./parts/sidebar') %>
+
+        <!--app-content open-->
+        <div class="main-content app-content mt-0">
+          <div class="side-app">
+
+            <!-- CONTAINER -->
+            <div class="main-container container-fluid">
+
+              <!-- PAGE-HEADER -->
+              <div class="page-header">
+                <h1 class="page-title">Deploy Server</h1>
+              </div>
+              <!-- PAGE-HEADER END -->
+              <% if (variables) { %>
+                <% if (variables.error && status_replies.error[variables.error]) { %>
+                  <div class="alert alert-danger" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
+                    <i class="fa fa-frown-o me-2" aria-hidden="true"></i>
+                    <%- eval(`\`${status_replies.error[variables.error]}\``) %>
+                  </div>
+                  <% } else if (variables.success && status_replies.success[variables.success]) { %>
+                    <div class="alert alert-success" role="alert">
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
+                      <i class="fa fa-check-circle-o me-2" aria-hidden="true"></i>
+                      <%- eval(`\`${status_replies.success[variables.success]}\``) %>
+                    </div>
+                    <% } else { %>
+                      <div class="alert alert-info" role="alert">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
+                        <i class="fa fa-bell-o me-2" aria-hidden="true"></i>
+                        <%= JSON.stringify(variables) %>
+                      </div>
+                      <% } %>
+                        <% } %>
+                          <!-- ROW-1 -->
+                          <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
+                              <div class="row">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
+                                  <div class="card overflow-hidden">
+                                    <div class="card-body">
+                                      <div class="d-flex">
+                                        <div class="mt-2">
+                                          <h6 class="">CPU</h6>
+                                          <h2 class="mb-0 number-font">
+                                            <%= current.cpu %>% / <%= total.cpu %>%
+                                          </h2>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
+                                  <div class="card overflow-hidden">
+                                    <div class="card-body">
+                                      <div class="d-flex">
+                                        <div class="mt-2">
+                                          <h6 class="">MEMORY</h6>
+                                          <h2 class="mb-0 number-font">
+                                            <%= current.memory %>MB / <%= total.memory %>MB
+                                          </h2>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
+                                  <div class="card overflow-hidden">
+                                    <div class="card-body">
+                                      <div class="d-flex">
+                                        <div class="mt-2">
+                                          <h6 class="">SERVERS</h6>
+                                          <h2 class="mb-0 number-font">
+                                            <%= current.servers %> server<%= current.servers==1 ? "" : "s" %>
+                                                / <%= total.servers %> server<%= total.servers==1 ? "" : "s" %>
+                                          </h2>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
+                                  <div class="card overflow-hidden">
+                                    <div class="card-body">
+                                      <div class="d-flex">
+                                        <div class="mt-2">
+                                          <h6 class="">DISK</h6>
+                                          <h2 class="mb-0 number-font">
+                                            <%= current.disk %>MB / <%= total.disk %>MB
+                                          </h2>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- ROW-1 END -->
+                          <div class="col-md-12 col-lg-12">
+                            <div class="row">
+                              <div class="card">
+                                <div class="card-header">
+                                  <div class="card-body">
+
+                                    <% if (Object.entries(settings.locations).filter(loc=> loc[1].enabled &&
+                                      (loc[1].package ? loc[1].package.includes(package.name) : true)).length == 0) {
+                                      %>
+                                      At the moment, there are no nodes you can create servers. Please try again
+                                      later!
+                                      <% } else { %>
+                                        <form action="/servers/create" method="POST">
+                                          <div class="form-group">
+                                            <label for="name">Server Name</label>
+                                            <input name="name" type="text" class="form-control" placeholder="My Server"
+                                              id="name">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="location">Location</label>
+                                            <select name="location" class="form-control" id="grid-state" id="location">
+                                              <% for (let [name, value] of
+                                                Object.entries(settings.locations).filter(loc=>
+                                                loc[1].enabled &&
+                                                (loc[1].package ? loc[1].package.includes(package.name) : true))) { %>
+                                                <option value="<%= name %>">
+                                                  <%= value.name %>
+                                                </option>
+                                                <% } %>
+                                            </select>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="egg">Egg</label>
+                                            <select name="egg" class="form-control" id="grid-state" id="egg">
+                                              <% for (let [name, value] of Object.entries(settings.eggs)) { %>
+                                                <option value="<%= name %>">
+                                                  <%= value.display %>
+                                                </option>
+                                                <% } %>
+                                            </select>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="memory">Memory</label>
+                                            <input name="memory" type="number" class="form-control" placeholder="1024"
+                                              id="memory">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="disk">Disk</label>
+                                            <input name="disk" type="number" class="form-control" placeholder="1024"
+                                              id="disk">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="cpu">CPU</label>
+                                            <input name="cpu" type="number" class="form-control" placeholder="75"
+                                              id="cpu">
+                                          </div>
+                                          <br>
+                                          <input class="btn btn-block btn-primary" type="submit" value="Create server.">
+                                  </div>
+                                  </form>
+                                </div>
+                                <% } %>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- ROW  2 END-->
+
+            </div>
+            <!-- CONTAINER END -->
+          </div>
+        </div>
+        <!--app-content close-->
+
+  </div>
+
+  <!-- Sidebar-right -->
+  <div class="sidebar sidebar-right sidebar-animate">
+    <div class="panel panel-primary card mb-0 shadow-none border-0">
+      <div class="tab-menu-heading border-0 d-flex p-3">
+        <div class="card-title mb-0"><i class="fe fe-bell me-2"></i><span class=" pulse"></span>Notifications
+        </div>
+        <div class="card-options ms-auto">
+          <a href="javascript:void(0);" class="sidebar-icon text-end float-end me-3 mb-1" data-bs-toggle="sidebar-right"
+            data-target=".sidebar-right"><i class="fe fe-x text-white"></i></a>
+        </div>
+      </div>
+      <div class="panel-body tabs-menu-body latest-tasks p-0 border-0">
+        <div class="tabs-menu border-bottom">
+          <!-- Tabs -->
+          <ul class="nav panel-tabs">
+            <li class=""><a href="#side1" class="active" data-bs-toggle="tab"><i
+                  class="fe fe-settings me-1"></i>Feeds</a></li>
+            <li><a href="#side2" data-bs-toggle="tab"><i class="fe fe-message-circle"></i> Chat</a></li>
+            <li><a href="#side3" data-bs-toggle="tab"><i class="fe fe-anchor me-1"></i>Timeline</a></li>
+          </ul>
+        </div>
+        <div class="tab-content">
+          <div class="tab-pane active" id="side1">
+            <div class="p-3 fw-semibold ps-5">Feeds</div>
+            <div class="card-body pt-2">
+              <div class="browser-stats">
+                <div class="row mb-4">
+                  <div class="col-sm-2 mb-sm-0 mb-3">
+                    <span class="feeds avatar-circle brround bg-primary-transparent"><i
+                        class="fe fe-user text-primary"></i></span>
+                  </div>
+                  <div class="col-sm-10 ps-sm-0">
+                    <div class="d-flex align-items-end justify-content-between ms-2">
+                      <h6 class="">New user registered</h6>
+                      <div>
+                        <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                        <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div class="col-sm-2 mb-sm-0 mb-3">
+                    <span class="feeds avatar-circle avatar-circle-secondary brround bg-secondary-transparent"><i
+                        class="fe fe-shopping-cart text-secondary"></i></span>
+                  </div>
+                  <div class="col-sm-10 ps-sm-0">
+                    <div class="d-flex align-items-end justify-content-between ms-2">
+                      <h6 class="">New order delivered</h6>
+                      <div>
+                        <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                        <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div class="col-sm-2 mb-sm-0 mb-3">
+                    <span class="feeds avatar-circle avatar-circle-danger brround bg-danger-transparent"><i
+                        class="fe fe-bell text-danger"></i></span>
+                  </div>
+                  <div class="col-sm-10 ps-sm-0">
+                    <div class="d-flex align-items-end justify-content-between ms-2">
+                      <h6 class="">You have pending tasks</h6>
+                      <div>
+                        <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                        <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div class="col-sm-2 mb-sm-0 mb-3">
+                    <span class="feeds avatar-circle avatar-circle-warning brround bg-warning-transparent"><i
+                        class="fe fe-gitlab text-warning"></i></span>
+                  </div>
+                  <div class="col-sm-10 ps-sm-0">
+                    <div class="d-flex align-items-end justify-content-between ms-2">
+                      <h6 class="">New version arrived</h6>
+                      <div>
+                        <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                        <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div class="col-sm-2 mb-sm-0 mb-3">
+                    <span class="feeds avatar-circle avatar-circle-pink brround bg-pink-transparent"><i
+                        class="fe fe-database text-pink"></i></span>
+                  </div>
+                  <div class="col-sm-10 ps-sm-0">
+                    <div class="d-flex align-items-end justify-content-between ms-2">
+                      <h6 class="">Server #1 overloaded</h6>
+                      <div>
+                        <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                        <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-2 mb-sm-0 mb-3">
+                    <span class="feeds avatar-circle avatar-circle-info brround bg-info-transparent"><i
+                        class="fe fe-check-circle text-info"></i></span>
+                  </div>
+                  <div class="col-sm-10 ps-sm-0">
+                    <div class="d-flex align-items-end justify-content-between ms-2">
+                      <h6 class="">New project launched</h6>
+                      <div>
+                        <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                        <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-3 fw-semibold ps-5">Settings</div>
+            <div class="card-body pt-2">
+              <div class="browser-stats">
+                <div class="row mb-4">
+                  <div class="col-sm-2 mb-sm-0 mb-3">
+                    <span class="feeds avatar-circle brround bg-primary-transparent"><i
+                        class="fe fe-settings text-primary"></i></span>
+                  </div>
+                  <div class="col-sm-10 ps-sm-0">
+                    <div class="d-flex align-items-end justify-content-between ms-2">
+                      <h6 class="">General Settings</h6>
+                      <div>
+                        <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div class="col-sm-2 mb-sm-0 mb-3">
+                    <span class="feeds avatar-circle avatar-circle-secondary brround bg-secondary-transparent"><i
+                        class="fe fe-map-pin text-secondary"></i></span>
+                  </div>
+                  <div class="col-sm-10 ps-sm-0">
+                    <div class="d-flex align-items-end justify-content-between ms-2">
+                      <h6 class="">Map Settings</h6>
+                      <div>
+                        <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div class="col-sm-2 mb-sm-0 mb-3">
+                    <span class="feeds avatar-circle avatar-circle-danger brround bg-danger-transparent"><i
+                        class="fe fe-headphones text-danger"></i></span>
+                  </div>
+                  <div class="col-sm-10 ps-sm-0">
+                    <div class="d-flex align-items-end justify-content-between ms-2">
+                      <h6 class="">Support Settings</h6>
+                      <div>
+                        <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div class="col-sm-2 mb-sm-0 mb-3">
+                    <span class="feeds avatar-circle avatar-circle-warning brround bg-warning-transparent"><i
+                        class="fe fe-credit-card text-warning"></i></span>
+                  </div>
+                  <div class="col-sm-10 ps-sm-0">
+                    <div class="d-flex align-items-end justify-content-between ms-2">
+                      <h6 class="">Payment Settings</h6>
+                      <div>
+                        <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div class="col-sm-2 mb-sm-0 mb-3">
+                    <span class="feeds avatar-circle avatar-circle-pink brround bg-pink-transparent"><i
+                        class="fe fe-bell text-pink"></i></span>
+                  </div>
+                  <div class="col-sm-10 ps-sm-0">
+                    <div class="d-flex align-items-end justify-content-between ms-2">
+                      <h6 class="">Notification Settings</h6>
+                      <div>
+                        <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/Sidebar-right-->
+
+
+  <%- include('./parts/footer') %>
+
+    </div>
+
+    <!-- BACK-TO-TOP -->
+    <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- JQUERY JS -->
+    <script src="../assets/js/jquery.min.js"></script>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- SPARKLINE JS-->
+    <script src="../assets/js/jquery.sparkline.min.js"></script>
+
+    <!-- Sticky js -->
+    <script src="../assets/js/sticky.js"></script>
+
+    <!-- CHART-CIRCLE JS-->
+    <script src="../assets/js/circle-progress.min.js"></script>
+
+    <!-- PIETY CHART JS-->
+    <script src="../assets/plugins/peitychart/jquery.peity.min.js"></script>
+    <script src="../assets/plugins/peitychart/peitychart.init.js"></script>
+
+    <!-- SIDEBAR JS -->
+    <script src="../assets/plugins/sidebar/sidebar.js"></script>
+
+    <!-- Perfect SCROLLBAR JS-->
+    <script src="../assets/plugins/p-scroll/perfect-scrollbar.js"></script>
+    <script src="../assets/plugins/p-scroll/pscroll.js"></script>
+    <script src="../assets/plugins/p-scroll/pscroll-1.js"></script>
+
+    <!-- INTERNAL CHARTJS CHART JS-->
+    <script src="../assets/plugins/chart/Chart.bundle.js"></script>
+    <script src="../assets/plugins/chart/rounded-barchart.js"></script>
+    <script src="../assets/plugins/chart/utils.js"></script>
+
+    <!-- INTERNAL SELECT2 JS -->
+    <script src="../assets/plugins/select2/select2.full.min.js"></script>
+
+    <!-- INTERNAL Data tables js-->
+    <script src="../assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+    <script src="../assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
+    <script src="../assets/plugins/datatable/dataTables.responsive.min.js"></script>
+
+    <!-- INTERNAL APEXCHART JS -->
+    <script src="../assets/js/apexcharts.js"></script>
+    <script src="../assets/plugins/apexchart/irregular-data-series.js"></script>
+
+    <!-- C3 CHART JS -->
+    <script src="../assets/plugins/charts-c3/d3.v5.min.js"></script>
+    <script src="../assets/plugins/charts-c3/c3-chart.js"></script>
+
+    <!-- CHART-DONUT JS -->
+    <script src="../assets/js/charts.js"></script>
+
+    <!-- INTERNAL Flot JS -->
+    <script src="../assets/plugins/flot/jquery.flot.js"></script>
+    <script src="../assets/plugins/flot/jquery.flot.fillbetween.js"></script>
+    <script src="../assets/plugins/flot/chart.flot.sampledata.js"></script>
+    <script src="../assets/plugins/flot/dashboard.sampledata.js"></script>
+
+    <!-- INTERNAL Vector js -->
+    <script src="../assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="../assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+
+    <!-- SIDE-MENU JS-->
+    <script src="../assets/plugins/sidemenu/sidemenu.js"></script>
+
+    <!-- INTERNAL INDEX JS -->
+    <script src="../assets/js/index1.js"></script>
+
+    <!-- Color Theme js -->
+    <script src="../assets/js/themeColors.js"></script>
+
+    <!-- CUSTOM JS -->
+    <script src="../assets/js/custom.js"></script>
+
+</body>
+
+</html>

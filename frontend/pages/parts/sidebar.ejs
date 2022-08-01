@@ -1,0 +1,90 @@
+<!--APP-SIDEBAR-->
+<div class="sticky">
+    <div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
+    <div class="app-sidebar">
+        <div class="side-header">
+            <a class="header-brand1" href="/dashboard">
+                <img src="https://media.discordapp.net/attachments/939893692624404492/948471326220353546/IMG_20220302_154614.png?width=960&height=332"
+                    class="header-brand-img desktop-logo" alt="logo">
+                <img src="https://media.discordapp.net/attachments/933479006894968842/948469011417538570/IMG_20220302_153222.png"
+                    class="header-brand-img toggle-logo" alt="logo">
+                <img src="https://media.discordapp.net/attachments/939893692624404492/948471326220353546/IMG_20220302_154614.png?width=960&height=332"
+                    class="header-brand-img light-logo" alt="logo">
+                <img src="https://media.discordapp.net/attachments/933479006894968842/948469011417538570/IMG_20220302_153222.png"
+                    class="header-brand-img light-logo1" alt="logo">
+            </a>
+            <!-- LOGO -->
+        </div>
+        <div class="main-sidemenu">
+            <div class="slide-left disabled" id="slide-left"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191"
+                    width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z" />
+                </svg></div>
+
+            <ul class="side-menu">
+                <li class="slide">
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
+                            class="side-menu__icon fe fe-star"></i><span class="side-menu__label">
+                            <%= data.dbinfo.coins %> coin<%= data.dbinfo.coins==1 ? "" : "s" %>
+                        </span></a>
+                </li>
+                <li class="sub-category">
+                    <h3>Home</h3>
+                </li>
+                <li class="slide">
+                    <a class="side-menu__item" data-bs-toggle="slide" href="/dashboard"><i
+                            class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Dashboard</span></a>
+                </li>
+                <li class="slide">
+                    <a class="side-menu__item" data-bs-toggle="slide" href="/servers/new"><i
+                            class="side-menu__icon fe fe-codepen"></i><span class="side-menu__label">Deploy</span></a>
+                </li>
+                <li class="slide">
+                    <a class="side-menu__item" data-bs-toggle="slide" href="/servers"><i
+                            class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Servers</span></a>
+                </li>
+                <li class="slide">
+                    <a class="side-menu__item" data-bs-toggle="slide" href="<%= settings.pterodactyl.domain %>"><i
+                            class="side-menu__icon fe fe-cloud"></i><span class="side-menu__label">Panel Link</span></a>
+                </li>
+                <li class="sub-category">
+                    <h3>Account</h3>
+                </li>
+                <li class="slide">
+                    <a class="side-menu__item" data-bs-toggle="slide" href="/profile"><i
+                            class="side-menu__icon fe fe-user"></i><span class="side-menu__label">Profile</span></a>
+                </li>
+                <li class="slide">
+                    <a class="side-menu__item" data-bs-toggle="slide" href="/store"><i
+                            class="side-menu__icon fe fe-shopping-cart"></i><span class="side-menu__label">Resources
+                            Store</span></a>
+                </li>
+                <li class="sub-category">
+                    <h3>Earn</h3>
+                </li>
+                <li class="slide">
+                    <a class="side-menu__item" data-bs-toggle="slide" href="/earn/afk"><i
+                            class="side-menu__icon fe fe-stop-circle"></i><span class="side-menu__label">AFK</span></a>
+                </li>
+                <li class="slide">
+                    <a class="side-menu__item" data-bs-toggle="slide" href="/earn/redeem"><i
+                            class="side-menu__icon fe fe-credit-card"></i><span class="side-menu__label">Reedem
+                            Coupon</span></a>
+                </li>
+                <% if(data.panelinfo.root_admin) { %>
+                    <li class="sub-category">
+                        <h3>Administrator</h3>
+                    </li>
+                    <a class="side-menu__item" data-bs-toggle="slide" href="/admin"><i
+                            class="side-menu__icon fe fe-settings"></i><span
+                            class="side-menu__label">Administrator</span></a>
+                    <% } %>
+            </ul>
+            <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24"
+                    height="24" viewBox="0 0 24 24">
+                    <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z" />
+                </svg></div>
+        </div>
+    </div>
+    <!--/APP-SIDEBAR-->
+</div>
