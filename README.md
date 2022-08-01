@@ -95,4 +95,4 @@ server {
    `pm2 start index.js`<br>
    `pm2 save`
 
-# Join our [![Hexidash](https://img.shields.io/badge/reliactyl-support%20server-7289da.svg)](https://discord.gg/sPBE2Vcdff)
+# Join our [![Hexidash](https://img.shields.io/badge/Hexidash-support%20server-7289da.svg)](https://discord.gg/sPBE2Vcdff)
