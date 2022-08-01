@@ -1,7 +1,5 @@
 # Hexidash v-2.0
 
-![Hexidash](https://images-ext-1.discordapp.net/external/L4tPYgGXJv5POQ_PZ8hx3brzFYCRS6hH267cIaLQrvQ/https/repository-images.githubusercontent.com/467312432/1d1ed9e4-b8f4-4fdc-a5c1-933ca523b4c3?width=814&height=457)<br>
-
 <h1>Features</h1>
 - Allows users to split resources throughout multiple servers on the Pterodactyl Panel, and uses a Discord OAuth2 as a login system(updated).<br>
 - Coins (AFK Page earning)<br>
