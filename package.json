@@ -1,5 +1,5 @@
 {
-  "name": "reliactyl-2.0",
+  "name": "hexidash-v2.0.0",
   "version": "1.0.4",
   "description": "A client panel to split resources among users for pterodactyl.",
   "main": "index.js",

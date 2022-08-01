@@ -127,7 +127,7 @@ app.use(async (req, res, next) => {
 const listener = app.listen(process.env.website.port, function () {
   // Listens the website at a port.
   console.log(
-    `[WEBSITE] The application is now listening on port ${
+    `[WEBSITE] Hexidash is now listening on port ${
       listener.address().port
     }.`
   ); // Message sent when the port is successfully listening and the website is ready.

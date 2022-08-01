@@ -3,7 +3,7 @@
 # Keep in mind decimals will not work. MySQL rounds them up.
 
 website:
-  port: 4440 # The port you want Dashactyl to run on.
+  port: 4440 # The port you want Hexidash to run on.
   secret: "Enter your session password here." # Make this very secure and complicated.
   secure: false # This option requires https.
 
@@ -17,11 +17,11 @@ discord:
   guild: "000000000000000000" # Add your server ID you want to force users to join on login here.
   registeredrole: "000000000000000000" # Add the ID of the role you want to be granted when logging into the dashboard.
 
-auditlogs: # This feature enable auditlogs for dashactyl v1
+auditlogs: # This feature enable auditlogs for Hexidash v2
   enabled: false # enable or disable the Audit Logs
   webhook_url: "Enter your webhook URL"
 
-email_system: # This feature enable email system for Dashactyl v1
+email_system: # This feature enable email system for Hexidash v2
   enabled: false # enable or disable the email system
   smtp_host: "Enter your SMTP Host" # You need to put here your smtp host from your email software (gmail, zoho, etc.) like smtp.zoho.com
   smtp_port: "Enter your SMTP Port" # Put the port of your smtp host like 465
@@ -29,7 +29,7 @@ email_system: # This feature enable email system for Dashactyl v1
   smtp_password: "Enter your SMTP Password" # Your email password.
   extra: # Some additional things, this will edit some links in the HTML format that will be sent by email
     dashboardurl: "Enter your dashboard url with https" # Necessary
-    dashboardname: "Reliactyl" # Necessary
+    dashboardname: "Hexidash" # Necessary
 
 pterodactyl:
   domain: "Enter your Pterodactyl Panel domain here."
@@ -41,7 +41,7 @@ database: # MySQL database.
   port: "Enter your database port here."
   user: "Enter your database user here."
   password: "Enter your database password here."
-  database: "reliactyl"
+  database: "Hexidash"
 
 api: # The client area might break if there are no API codes, so I highly recommend adding a single secure API code.
   apicodepassword: # This would be the "Bearer apicodepassword".
