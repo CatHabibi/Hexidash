@@ -26,7 +26,7 @@
 `git clone https://github.com/CatHabibi/Hexidash.git`<br>
 `cd Hexidash`<br>
 `cp settings-template.yml settings.yml` <br>
-`sudo nano settings.yml` and type all require settings<br>
+`sudo nano settings.yml` (Insert All Required Things In settings.yml)<br>
 `sudo npm install`<br>
 `sudo apt install nginx`<br>
 `sudo apt install certbot`<br>
@@ -39,7 +39,7 @@ mysql -u root -p
 # After you've got that setup, let's go into the next step. Remember to change 'YourPasswordHere' with a secure password.
 CREATE USER 'dashboard'@'%' IDENTIFIED BY 'YourPasswordHere';
 CREATE DATABASE hexidash;
-GRANT ALL PRIVILEGES ON Hexidash.\* TO 'dashboard'@'%' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON dashactyl.\* TO 'dashboard'@'%' WITH GRANT OPTION;
 quit;
 ```
 
@@ -83,14 +83,16 @@ server {
 }
 ```
 
-<h2>Starting Hexidash 2.0</h2>
+<h2>How To Start Hexidash V2.0</h2>
 
-1. Testing<br>
-   `cd path/to/the/hexidash`<br>
-   `node index.js`<br>
+1. Start Command For Testing Purposes<br>
+   `Testing Purposes Turn On Hexidash Temporarily It Turns Off When You Exit SSH Of Your VPS/Dedi`
+   `cd Hexidash`<br>
+   `node .`<br>
 
-2. Production<br>
-   `cd path/to/the/hexidash`<br>
+2. Start Command For Production Puropses<br>
+   `Production Purposes Turn On Hexidash Permanently It Turns Doesn't Turn Off Until You Shut Down Hexidash By Yourself Or Shut Down Your VPS/Dedi`
+   `cd Hexidash`<br>
    `npm install pm2 -g`<br>
    `pm2 start index.js`<br>
    `pm2 save`
