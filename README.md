@@ -16,11 +16,23 @@
 
 <h2>Installing Dependencies</h2>
 
-`sudo apt update && sudo apt upgrade`<br>
-`sudo apt install git`<br>
-`curl -fsSL https://deb.nodesource.com/setup_14.x | sudo bash -`<br>
-`sudo apt install nodejs`<br>
-`sudo apt install mariadb-server`<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 `sudo mysql_secure_installation`<br>
 `npm -v`<br>
 `git clone https://github.com/CatHabibi/Hexidash.git`<br>
@@ -91,7 +103,7 @@ server {
    `node .`<br>
 
 2. Start Command For Production Puropses<br>
-   `Production Purposes Turn On Hexidash Permanently It Turns Doesn't Turn Off Until You Shut Down Hexidash By Yourself Or Shut Down Your VPS/Dedi`<br>
+   `Production Purposes Turn On Hexidash Permanently It Turns Doesn't Turn Off Until You Shut Down Hexidash By Yourself`<br>
    `cd Hexidash`<br>
    `npm install pm2 -g`<br>
    `pm2 start index.js`<br>
