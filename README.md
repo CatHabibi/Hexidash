@@ -86,12 +86,12 @@ server {
 <h2>How To Start Hexidash V2.0</h2>
 
 1. Start Command For Testing Purposes<br>
-   `Testing Purposes Turn On Hexidash Temporarily It Turns Off When You Exit SSH Of Your VPS/Dedi`
+   `Testing Purposes Turn On Hexidash Temporarily It Turns Off When You Exit SSH Of Your VPS/Dedi`<br>
    `cd Hexidash`<br>
    `node .`<br>
 
 2. Start Command For Production Puropses<br>
-   `Production Purposes Turn On Hexidash Permanently It Turns Doesn't Turn Off Until You Shut Down Hexidash By Yourself Or Shut Down Your VPS/Dedi`
+   `Production Purposes Turn On Hexidash Permanently It Turns Doesn't Turn Off Until You Shut Down Hexidash By Yourself Or Shut Down Your VPS/Dedi`<br>
    `cd Hexidash`<br>
    `npm install pm2 -g`<br>
    `pm2 start index.js`<br>
