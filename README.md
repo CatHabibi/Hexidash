@@ -32,22 +32,21 @@
 
 
 
-`sudo apt update && sudo apt upgrade`<br>
-`sudo apt install git`<br>
-`curl -fsSL https://deb.nodesource.com/setup_14.x | sudo bash -`<br>
-`sudo apt install nodejs`<br>
+`sudo apt update && sudo apt upgrade`
+`sudo apt install git`
+`curl -fsSL https://deb.nodesource.com/setup_14.x | sudo bash -`
+`sudo apt install nodejs`
+`sudo apt install mariadb-server`
+`sudo mysql_secure_installation`
+`npm -v`
+`git clone https://github.com/CatHabibi/Hexidash.git`
+`cd Hexidash`
+`cp settings-template.yml settings.yml`
+`sudo nano settings.yml` (Insert All Required Things In settings.yml)
 `sudo npm install`
-`npm -v`<br>
-`git clone https://github.com/CatHabibi/Hexidash.git`<br>
-`cd Hexidash`<br>
-`cp settings-template.yml settings.yml` <br>
-`sudo nano settings.yml` (Insert All Required Things In settings.yml)<br>
-``sudo apt install mariadb-server`<br>
-`sudo mysql_secure_installation`<br>
-`mysql -u root -p`<br>
-`sudo apt install nginx`<br>
-`sudo apt install certbot`<br>
-`sudo apt install -y python3-certbot-nginx`<br>
+`sudo apt install nginx`
+`sudo apt install certbot`
+`sudo apt install -y python3-certbot-nginx`
 
 <h2>Database Setup</h2>
 
