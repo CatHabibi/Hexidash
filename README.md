@@ -32,7 +32,11 @@
 
 
 
-
+`sudo apt update && sudo apt upgrade`<br>
+`sudo apt install git`<br>
+`curl -fsSL https://deb.nodesource.com/setup_14.x | sudo bash -`<br>
+`sudo apt install nodejs`<br>
+`sudo apt install mariadb-server`<br>
 `sudo mysql_secure_installation`<br>
 `npm -v`<br>
 `git clone https://github.com/CatHabibi/Hexidash.git`<br>
@@ -109,4 +113,4 @@ server {
    `pm2 start index.js`<br>
    `pm2 save`
 
-# Join our [![Hexidash](https://img.shields.io/badge/Hexidash-Support%20Server-7289da.svg)](https://discord.gg/sPBE2Vcdff)
+# Join our [![Hexidash](https://img.shields.io/badge/Hexidash-Support%20Server-7289da.svg)](https://discord.gg/freehost)
